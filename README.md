@@ -3,6 +3,7 @@
 ## Intro
 SSH, or Secure Shell, is a network protocol that allows you to securely access and manage remote servers and devices over an encrypted connection. It provides a secure way to communicate with your server, transfer files, and execute commands remotely. Learning how to use SSH can greatly increase your productivity and efficiency as a developer or system administrator. It eliminates the need to physically be in front of a server to perform tasks, and also ensures that your communications and data remain secure from prying eyes.
 So, if you're ready to take your remote server management skills to the next level, buckle up and get ready to dive into the world of SSH!
+
 ---
 
 ## What are you going to learn? 🤓
