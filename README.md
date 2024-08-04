@@ -16,20 +16,20 @@ So, if you're ready to take your remote server management skills to the next lev
 
 ## Structure of the **SSH** protocol:
 ### **🧬SSH packet structure🧬**
-#### _Package length_
-size: 4 bytes
-purpose: This specifies the total length of the packet, including the length of the packet length field itself. It is usually 32 bits in size.
-#### _Padding amount_
-size: 1 byte
-purpose: This field is used to pad the packet to a specified block size for encryption. It is usually 8 bits in size.
-#### _Payload_
-size: depends
-purpose: This contains the actual data being transmitted, such as a command or file transfer. The size of the payload can vary depending on the specific data being sent.
-#### _Padding_
-purpose: This padding is added to the payload to ensure that the total length of the packet is a multiple of the encryption block size. It is typically filled with random data and is used to prevent padding oracle attacks.
-#### _MAC (Message Authentication Code)_
-size: depends on the encryption algorithm used
-purpose: The MAC field contains a cryptographic hash that is used to verify the integrity of the packet. By checking the MAC, the recipient can ascertain that the packet has not been tampered with during transmission.
+1. #### _Package length_
+  size: 4 bytes
+  purpose: This specifies the total length of the packet, including the length of the packet length field itself. It is usually 32 bits in size.
+1. #### _Padding amount_
+  size: 1 byte
+  purpose: This field is used to pad the packet to a specified block size for encryption. It is usually 8 bits in size.
+1. #### _Payload_
+  size: depends
+  purpose: This contains the actual data being transmitted, such as a command or file transfer. The size of the payload can vary depending on the specific data being sent.
+1. #### _Padding_
+  purpose: This padding is added to the payload to ensure that the total length of the packet is a multiple of the encryption block size. It is typically filled with random data and is used to prevent   padding oracle attacks.
+1. #### _MAC (Message Authentication Code)_
+  size: depends on the encryption algorithm used
+  purpose: The MAC field contains a cryptographic hash that is used to verify the integrity of the packet. By checking the MAC, the recipient can ascertain that the packet has not been tampered with during transmission.
 ---
 ## How to install **SSH**:
 Usually SSH is installed on most Linux distributions by default and you can enable and use it right away, but if you're not sure if this is you're case, you can always check if it's installed by running the following command to check the version of SSH.
