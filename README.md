@@ -16,7 +16,6 @@ So, if you're ready to take your remote server management skills to the next lev
 
 ## Structure of the **SSH** protocol:
 ### **🧬SSH packet structure🧬**
-![image](https://www.researchgate.net/profile/Steve-Chapin-3/publication/225129766/figure/fig4/AS:341447036424193@1458418725412/SSH2-Binary-Packet-Protocol.png)
 #### _Package length_
 size: 4 bytes
 purpose: This specifies the total length of the packet, including the length of the packet length field itself. It is usually 32 bits in size.
