@@ -27,7 +27,7 @@ size: depends
 purpose: This contains the actual data being transmitted, such as a command or file transfer. The size of the payload can vary depending on the specific data being sent.
 - #### _Padding_
 purpose: This padding is added to the payload to ensure that the total length of the packet is a multiple of the encryption block size. It is typically filled with random data and is used to prevent   padding oracle attacks.
-- #### _MAC (Message Authentication Code)_
+- #### _MAC (Message Authentication Code)_   
 size: depends on the encryption algorithm used
 purpose: The MAC field contains a cryptographic hash that is used to verify the integrity of the packet. By checking the MAC, the recipient can ascertain that the packet has not been tampered with during transmission.
 ---
