@@ -39,11 +39,15 @@ If you are in the rare situation when you don't have SSH installed by default, y
 ### Debian based distributions:
 ```sh
 sudo apt install openssh-client
+```
+```sh
 sudo apt isntall openssh-server
 ```
 ### RHEL:
 ```sh
 sudo dnf install openssh
+```
+```sh
 sudo dnf install openssh-server
 ```
 ### Arch based distributions:
