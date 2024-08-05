@@ -7,11 +7,11 @@ So, if you're ready to take your remote server management skills to the next lev
 
 ## What are you going to learn? 🤓
 
-- [Structure of the SSH protocol.](#structure-of-the-ssh-protocol)
-- [How to install SSH.](#how-to-install-ssh)
-- [Enabling SSH.](#enabling-ssh)
-- [SSH with certificates.](#ssh-with-certificates)
-- [️Hardering SSH.](#hardering-ssh)
+- [Structure of the SSH protocol.](#structure-of-the-ssh-protocol:)
+- [How to install SSH.](#how-to-install-ssh:)
+- [Enabling SSH.](#enabling-ssh:)
+- [SSH with certificates.](#ssh-with-certificates:)
+- [️Hardering SSH.](#hardering-ssh:)
 
 ## Structure of the **SSH** protocol:
 ### **🧬SSH packet structure🧬**
@@ -55,10 +55,38 @@ sudo dnf install openssh-server
 sudo pacman -S openssh
 ```
 ## Enabling **SSH**:
-coming soon
+In order to enable SSH we need to execute some simple commands depending on the system you are using as a backend for your Linux distribution. You might be running on an older Unix System V system or the newer SystemD based system.
+
+### System V:
+
+```sh
+sudo service sshd start
+```
+### SystemD:
+
+```sh
+sudo systemctl start sshd
+```
+Once you exeute the right command for your's Linux system, **_Congratulations!_** you just started a SSH service. This is all fine but there is one problem, it is not persistent, that means that if you reboot your computer it will be disabled. To make it persistent you need to execute one more command.
+
+### System V:
+
+```sh
+sudo chkconfig sshd on
+```
+
+### SystemD:
+
+```sh
+sudo systemctl enable sshd
+```
+Now SSH should be up and running. In the next section we will discover ways to make it more secure.
 
 ## **SSH** with certificates:
-coming soon
+
+One of the ways to secure our SSH is by impoving the way we authenticate to the server. By now we were using a pair of _username_ and _password_, but passwords can be guessed, keylogged and brute-forced. In order to mitigate this risk we can use **certificates**.
+
+First of all we need to.
 
 ## Hardering **SSH**:
 coming soon
