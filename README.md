@@ -135,5 +135,10 @@ ssh USERNAME@SERVER_IP_ADRESS
 ```sh
 vim ./authorized_keys
 ```
+After this setup we need to enable the Public key authentication and disable the password authentication.
+We can do this by going to the **/etc/ssh/sshd_config** file and uncomment the line **PubkeyAuthentication yes**.
+(you can uncomment a line by deleting the **#** symbol at the start of the line)
+To disable the password authentication we can find the line that says **PasswordAuthentication yes** and change the yes to no, **PasswordAuthentication no**.
+
 ## Hardering **SSH**:
 coming soon
