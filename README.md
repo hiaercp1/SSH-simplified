@@ -140,5 +140,7 @@ We can do this by going to the **/etc/ssh/sshd_config** file and uncomment the l
 (you can uncomment a line by deleting the **#** symbol at the start of the line)
 To disable the password authentication we can find the line that says **PasswordAuthentication yes** and change the yes to no, **PasswordAuthentication no**.
 
+Restart the service by running `sudo` and you should be good to go :)
+
 ## Hardering **SSH**:
 coming soon
