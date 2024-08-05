@@ -106,7 +106,7 @@ Execute it on the client side **NOT** on the server side!
 ssh-keygen -t rsa 
 ```
 Now we need to tell the server to trust our machine based on the generated certificate.
-You can navigate to the .ssh directory and you will see three files: **id_rsa**, **id_rsa.pub**, **known_hostts**.
+You can navigate to the .ssh directory and you will see three files: **id_rsa**, **id_rsa.pub**, **known_hosts**.
 ```sh
 cd .ssh
 ```
@@ -143,4 +143,12 @@ To disable the password authentication we can find the line that says **Password
 Restart the service by running `sudo systemctl restart sshd` and you should be good to go :)
 
 ## Hardering **SSH**:
-coming soon
+
+Now to the latest section and that is **Hardering**. In this section we will talk about securing your SSH.
+
+- First of all we should disable the SSH 1 protocol. SSH 1 protocol is old, insecure and weak so we want to use just the newest and greatest protocol which is the SSH 2.
+  To do so go to the **/etc/ssh/sshd_config** find a line that says **Protocol X** where X is the protocol version and make sure you only allow the SSH 2.
+
+- After only allowing the second version of the SSH protocol we might want to filter who is allowed to ssh in.
+  Most of the Linux distributions will prohibit the _root_ user, you can check this by going to the **/etc/ssh/sshd_config** file and look at the line that says **PermitRootLogin no**. If you see **PermitRootLogin yes** you can comment this line to ban the _root_ user from sshing     in or change the yes to no. If you want to filter who can ssh in you can add a line in the **/etc/ssh/sshd_config** that  says **AllowUsers user1 user2** where user1 and user2 is the usernames you want to let in (you can list more than 2 or less than 2, It's completely up to you.)
+
