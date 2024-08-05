@@ -7,11 +7,11 @@ So, if you're ready to take your remote server management skills to the next lev
 
 ## What are you going to learn? 🤓
 
-- [Structure of the SSH protocol.](#structure-of-the-ssh-protocol:)
-- [How to install SSH.](#how-to-install-ssh:)
-- [Enabling SSH.](#enabling-ssh:)
-- [SSH with certificates.](#ssh-with-certificates:)
-- [️Hardering SSH.](#hardering-ssh:)
+- [Structure of the SSH protocol.](#structure-of-the-ssh-protocol)
+- [How to install SSH.](#how-to-install-ssh)
+- [Enabling SSH.](#enabling-ssh)
+- [SSH with certificates.](#ssh-with-certificates)
+- [️Hardering SSH.](#hardering-ssh)
 
 ## Structure of the **SSH** protocol:
 ### **🧬SSH packet structure🧬**
@@ -80,13 +80,60 @@ sudo chkconfig sshd on
 ```sh
 sudo systemctl enable sshd
 ```
+
+You can connect to the server by executing the following command:
+
+```sh
+ssh USERNAME@SERVER_IP_ADDRESS
+```
 Now SSH should be up and running. In the next section we will discover ways to make it more secure.
 
 ## **SSH** with certificates:
 
 One of the ways to secure our SSH is by impoving the way we authenticate to the server. By now we were using a pair of _username_ and _password_, but passwords can be guessed, keylogged and brute-forced. In order to mitigate this risk we can use **certificates**.
 
-First of all we need to.
+First of all we need to generate two keys, _Public_ key and a _Private_ key.
 
+- **Private key**
+  This key as a name suggest must be kept private, you do not give this key to anyone. This key is used to decrypt data that were encrypted by the Public key.
+- **Public key**
+  This key can be shared and we want to put it the the servers we intend to connect to. You can even share it on the internet and it's totally safe. The purpose of a Public key is just to encrypt data.
+
+We can do this by executing the following command:
+
+Execute it on the client side **NOT** on the server side!
+```sh
+ssh-keygen -t rsa 
+```
+Now we need to tell the server to trust our machine based on the generated certificate.
+You can navigate to the .ssh directory and you will see three files: **id_rsa**, **id_rsa.pub**, **known_hostts**.
+```sh
+cd .ssh
+```
+The **id_rsa** is the private key, and the **id_rsa.pub** is the public key.
+
+Now there are two ways to get the public key loaded to the SSH server.
+
+### ssh-copy-id command:
+
+you can use the ssh-copy-id utility to copy the certificate to the desired server by executing this command:
+
+```sh
+ssh-copy-id -i ~/.ssh/id_rsa.pub USERNAME@SERVER_IP_ADDRESS
+```
+### Copying the public certificate manualy:
+
+If you do not want to use the ssh-copy-id utility you can always just do it manualy.
+1. Copy the contents of the **id_rsa.pub** file.
+2. Connect to the server.
+```sh
+ssh USERNAME@SERVER_IP_ADRESS
+```
+3. Navigate to the .ssh directory (if you don't have it, just manualy creaty it and cd into it.)
+4. Execute the following command and paste the contents of the **id_rsa.pub** file there.
+
+```sh
+vim ./authorized_keys
+```
 ## Hardering **SSH**:
 coming soon
